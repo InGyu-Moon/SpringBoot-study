@@ -1,0 +1,16 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/my
+mybatis:
+  type-aliases-package: org.example.mybatistest.data.dto
+  mapper-locations: /mapper/**/*.xml

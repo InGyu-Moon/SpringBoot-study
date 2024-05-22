@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mybatistest.data.mapper.MarketMapperInter">
+    <select id="getTotalCount" resultType="int">
+        select count(*) from market
+    </select>
+    <insert id="insertMarket" parameterType="mdto">
+        insert into market (sang,dan,photoname, ipgoday) value (#{sang},#{dan},#{photoname},now())
+    </insert>
+    <select id="getAllDatas" resultType="mdto">
+        select * from market order by sang asc
+    </select>
+    <select id="getData" resultType="mdto">
+        select * from market where num=#{num}
+    </select>
+    <update id="updateMarket" parameterType="mdto">
+        update market set sang=#{sang},dan=#{dan}
+        <if test="photoname != null">
+            ,photoname=#{photoname}
+        </if>
+        where num=#{num}
+    </update>
+    <delete id="deleteMarket" parameterType="int">
+        delete from market where num=#{num}
+    </delete>
+</mapper>
